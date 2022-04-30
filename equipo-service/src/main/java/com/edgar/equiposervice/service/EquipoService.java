@@ -1,5 +1,6 @@
 package com.edgar.equiposervice.service;
 
+import com.edgar.equiposervice.configuration.feignclient.JugadorFeignClient;
 import com.edgar.equiposervice.entity.Equipo;
 import com.edgar.equiposervice.model.Jugador;
 import com.edgar.equiposervice.repository.EquipoRepsitory;
@@ -13,10 +14,13 @@ import java.util.List;
 public class EquipoService {
 
     @Autowired
+    private EquipoRepsitory equipoRepsitory;
+
+    @Autowired
     private RestTemplate restTemplate;
 
     @Autowired
-    private EquipoRepsitory equipoRepsitory;
+    private JugadorFeignClient jugadorFeignClient;
 
     public List<Equipo> findAll() {
         return equipoRepsitory.findAll();
@@ -32,5 +36,10 @@ public class EquipoService {
 
     public List<Jugador> getJugadores(int idEquipo) {
         return restTemplate.getForObject("http://localhost:8082/jugador/equipo/" + idEquipo, List.class);
+    }
+
+    public Jugador saveJugador(Integer idEquipo, Jugador jugador) {
+        jugador.setIdEquipo(idEquipo);
+        return jugadorFeignClient.save(jugador);
     }
 }

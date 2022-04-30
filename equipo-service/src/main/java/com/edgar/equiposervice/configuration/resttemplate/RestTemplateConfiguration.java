@@ -1,4 +1,4 @@
-package com.edgar.equiposervice.configuration;
+package com.edgar.equiposervice.configuration.resttemplate;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

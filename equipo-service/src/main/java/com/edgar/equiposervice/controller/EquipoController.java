@@ -31,8 +31,14 @@ public class EquipoController {
         return ResponseEntity.ok(equipoService.save(equipo));
     }
 
-    @GetMapping("/jugadores/{idEquipo}")
+    @GetMapping("/jugador/{idEquipo}")
     public ResponseEntity<List<Jugador>> getJugadoresPorIdEquipo(@PathVariable int idEquipo) {
         return ResponseEntity.ok(equipoService.getJugadores(idEquipo));
     }
+
+    @PostMapping("/jugador/{idEquipo}")
+    public ResponseEntity<Jugador> saveJugador(@PathVariable int idEquipo, @RequestBody Jugador jugador) {
+        return ResponseEntity.ok(equipoService.saveJugador(idEquipo, jugador));
+    }
+
 }
