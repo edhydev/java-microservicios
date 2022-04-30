@@ -1,6 +1,7 @@
 package com.edgar.equiposervice.controller;
 
 import com.edgar.equiposervice.entity.Equipo;
+import com.edgar.equiposervice.model.Jugador;
 import com.edgar.equiposervice.service.EquipoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,5 +29,10 @@ public class EquipoController {
     @PostMapping
     public ResponseEntity<Equipo> guardar(@RequestBody Equipo equipo) {
         return ResponseEntity.ok(equipoService.save(equipo));
+    }
+
+    @GetMapping("/jugadores/{idEquipo}")
+    public ResponseEntity<List<Jugador>> getJugadoresPorIdEquipo(@PathVariable int idEquipo) {
+        return ResponseEntity.ok(equipoService.getJugadores(idEquipo));
     }
 }
