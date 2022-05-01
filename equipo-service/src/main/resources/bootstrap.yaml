@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: equipo-service
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8081
+  datasource:
+    url: jdbc:mysql://localhost:3306/liga7_equipos
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 1234
+  jpa:
+    database: mysql
+    generate-ddl: true
