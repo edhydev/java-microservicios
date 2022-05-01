@@ -4,12 +4,4 @@ spring:
   cloud:
     config:
       enabled: true
-      uri: http://localhost:8082
-  datasource:
-    url: jdbc:mysql://localhost:3306/liga7_jugadores
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: 1234
-  jpa:
-    database: mysql
-    generate-ddl: true
+      uri: http://localhost:8080
