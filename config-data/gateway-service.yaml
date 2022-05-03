@@ -1,0 +1,27 @@
+server:
+  port: 8081
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+    instance:
+      hostname: localhost
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enable: true
+      routes:
+        - id: equipo-service
+          uri: lb://equipo-service
+          predicates:
+            - Path:/equipo/**
+        - id: jugador-service
+          uri: lb://jugador-service
+          predicates:
+            - Path:/jugador/**
