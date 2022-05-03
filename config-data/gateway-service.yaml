@@ -20,8 +20,8 @@ spring:
         - id: equipo-service
           uri: lb://equipo-service
           predicates:
-            - Path:/equipo/**
+            - Path=/equipo/**
         - id: jugador-service
           uri: lb://jugador-service
           predicates:
-            - Path:/jugador/**
+            - Path=/jugador/**
