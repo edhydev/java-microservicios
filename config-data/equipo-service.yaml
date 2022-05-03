@@ -10,3 +10,12 @@ spring:
   jpa:
     database: mysql
     generate-ddl: true
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8099/eureka
+    instance:
+      hostname: localhost
